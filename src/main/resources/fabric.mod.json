@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "compass-tracker",
+	"version": "${version}",
+	"name": "Compass Tracker",
+	"description": "A customizable (WIP) compass tracker.",
+	"authors": [
+		"DuncanRuns"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/compass-tracker/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.duncanruns.compasstracker.CompassTracker"
+		]
+	},
+	"mixins": [
+		"compass-tracker.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
