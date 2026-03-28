@@ -1,17 +1,17 @@
 package me.duncanruns.compasstracker.mixin;
 
 import me.duncanruns.compasstracker.CompassTracker;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(ServerPlayerEntity.class)
+@Mixin(ServerPlayer.class)
 public abstract class ServerPlayerEntityMixin {
-    @Inject(method = "onDeath", at = @At("RETURN"))
+    @Inject(method = "die", at = @At("RETURN"))
     private void relayDeath(DamageSource damageSource, CallbackInfo ci) {
-        CompassTracker.onDeath((ServerPlayerEntity) (Object) this);
+        CompassTracker.onDeath((ServerPlayer) (Object) this);
     }
 }
