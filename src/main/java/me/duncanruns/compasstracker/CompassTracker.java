@@ -110,7 +110,7 @@ public class CompassTracker implements ModInitializer {
             ONLINE_TRACKED_PLAYERS.putAll(playerList.stream()
                     .filter(p -> Objects.requireNonNull(p.gameMode()).isSurvival())
                     .filter(LivingEntity::isAlive)
-                    .filter(p -> !p.getTags().contains("untracked"))
+                    .filter(p -> !p.entityTags().contains("untracked"))
                     .collect(Collectors.toMap(ServerPlayer::getUUID, p -> p)));
             ONLINE_TRACKED_PLAYERS.forEach((uuid, player) -> getPositionsMapForWorld(player.level())
                     .put(uuid, player.blockPosition())

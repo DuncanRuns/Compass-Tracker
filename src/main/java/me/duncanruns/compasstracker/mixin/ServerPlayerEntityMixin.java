@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerEntityMixin {
     @Inject(method = "die", at = @At("RETURN"))
-    private void relayDeath(DamageSource damageSource, CallbackInfo ci) {
+    private void relayDeath(DamageSource source, CallbackInfo ci) {
         CompassTracker.onDeath((ServerPlayer) (Object) this);
     }
 }
